@@ -19,10 +19,15 @@ namespace RazorPagesMovie.Modes
 
                 }
 
-                if (context.Movie.Any())
+                if (context == null || context.UserWallpaper == null)
+                {
+                    throw new ArgumentNullException();
+                }
+
+             /*   if (context.Movie.Any() && context.UserWallpaper.Any())
                 {
                     return;
-                }
+                }*/
 
                 context.Movie.AddRange(
                   new Movie()
@@ -60,35 +65,35 @@ namespace RazorPagesMovie.Modes
                     {
                         Name = "demo01",
                         Created = DateTime.Parse("1896-1-9"),
-                        Image = ImageToByte(Image.FromFile("C:\\Users\\TAN18\\Desktop\\壁纸\\wallhaven-72yz39.jpg"))
+                        Image = ImageToByte(Image.FromFile("G:\\Word Project\\.Net Project\\Mcr Labeler\\Template JPG\\AMatterofHealth.jpg"))
 
                     },
                     new UserWallpaper()
                     {
                         Name = "demo01",
                         Created = DateTime.Parse("1896-1-9"),
-                        Image = ImageToByte(Image.FromFile("C:\\Users\\TAN18\\Desktop\\壁纸\\wallhaven-exoyql.jpg"))
+                       Image = ImageToByte(Image.FromFile("G:\\Word Project\\.Net Project\\Mcr Labeler\\Template JPG\\Laserlabel_10069060.jpg"))
 
                     },
                     new UserWallpaper()
                     {
                         Name = "demo02",
                         Created = DateTime.Parse("1896-1-9"),
-                        Image = ImageToByte(Image.FromFile("C:\\Users\\TAN18\\Desktop\\壁纸\\wallhaven-jx9m6m.jpg"))
+                        Image = ImageToByte(Image.FromFile("G:\\Word Project\\.Net Project\\Mcr Labeler\\Template JPG\\KRAS-TYPE_2V_10108360.jpg"))
 
                     },
                     new UserWallpaper()
                     {
                         Name = "demo02",
                         Created = DateTime.Parse("1896-1-9"),
-                        Image = ImageToByte(Image.FromFile("C:\\Users\\TAN18\\Desktop\\壁纸\\wallhaven-l892py.jpg"))
+                       Image = ImageToByte(Image.FromFile("G:\\Word Project\\.Net Project\\Mcr Labeler\\Template JPG\\TopMargin.jpg"))
 
                     },
                     new UserWallpaper()
                     {
                         Name = "demo02",
                         Created = DateTime.Parse("1896-1-9"),
-                        Image = ImageToByte(Image.FromFile("C:\\Users\\TAN18\\Desktop\\壁纸\\wallhaven-o59r95.jpg"))
+                       Image = ImageToByte(Image.FromFile("G:\\Word Project\\.Net Project\\Mcr Labeler\\Template JPG\\REODER#32UP_YOUPAY_MCR.jpg"))
 
                     }
 
@@ -113,7 +118,7 @@ namespace RazorPagesMovie.Modes
         }
         public static Image ByteToImage(byte[] bytes)
         {
-
+            if (bytes == null) return null;
             MemoryStream stream = new MemoryStream(bytes);
             return Image.FromStream(stream);
         }
