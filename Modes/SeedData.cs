@@ -57,7 +57,15 @@ namespace RazorPagesMovie.Modes
                     ReleaseDate = DateTime.Parse("1959-4-15"),
                     Cenre = "Western",
                     Price = 3.99M
-                }
+                },
+                 new Movie
+                 {
+                     Title = "When Harry Met Sally",
+                     ReleaseDate = DateTime.Parse("1989-2-12"),
+                     Cenre = "Romantic Comedy",
+                     Price = 7.99M,
+                     Rating = "R"
+                 }
                     );
 
                 context.UserWallpaper.AddRange(
